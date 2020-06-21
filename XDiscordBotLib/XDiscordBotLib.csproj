@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <PackageId>XDiscordBotLib</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Mark Bakker</Authors>
+        <RepositoryUrl>https://github.com/Xythium/XDiscordLib</RepositoryUrl>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Preconditions" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Extensions\discord-rpc-w32.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Discord.Net" Version="2.2.0" />
+      <PackageReference Include="RavenDB.Client" Version="3.5.9" />
+      <PackageReference Include="Serilog" Version="2.9.0" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+      <PackageReference Include="Serilog.Sinks.Literate" Version="3.0.0" />
+      <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+      <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    </ItemGroup>
+
+</Project>

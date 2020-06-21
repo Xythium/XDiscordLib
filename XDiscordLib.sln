@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XDiscordLib-Dev", "XDiscordLib-Dev\XDiscordLib-Dev.csproj", "{BB73916F-621A-4AEE-96AD-4FB38F35C8B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XDiscordBotLib", "XDiscordBotLib\XDiscordBotLib.csproj", "{B890ABE2-F12C-461E-859D-23A6C41FEC55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB73916F-621A-4AEE-96AD-4FB38F35C8B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB73916F-621A-4AEE-96AD-4FB38F35C8B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB73916F-621A-4AEE-96AD-4FB38F35C8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB73916F-621A-4AEE-96AD-4FB38F35C8B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B890ABE2-F12C-461E-859D-23A6C41FEC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B890ABE2-F12C-461E-859D-23A6C41FEC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B890ABE2-F12C-461E-859D-23A6C41FEC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B890ABE2-F12C-461E-859D-23A6C41FEC55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
