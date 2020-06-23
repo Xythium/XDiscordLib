@@ -116,6 +116,7 @@ namespace XDiscordBotLib.Utils
             var context = new CommandContext(socketClient, message);
             using var typing = context.Channel.EnterTypingState();
             var result = await commands.ExecuteAsync(context, argPos, null);
+            typing?.Dispose();
 
             if (!result.IsSuccess)
             {
