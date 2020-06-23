@@ -3,6 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
+using XDiscordBotLib.Utils;
 
 namespace XDiscordBotLib.Commands
 {
@@ -99,6 +100,14 @@ namespace XDiscordBotLib.Commands
 
                 await ReplyAsync("", false, builder.Build());
             }
+        }
+        
+        [Command("about"), Summary("About the bot")]
+        public async Task About()
+        {
+            var assembly = typeof(Bot).Assembly.GetName();
+            var discord = typeof(DiscordClientExtensions).Assembly.GetName();
+            await ReplyAsync($"Running on {assembly.Name} {assembly.Version}, and {discord.Name} {discord.Version}");
         }
 
         /* [Command("ping")]
