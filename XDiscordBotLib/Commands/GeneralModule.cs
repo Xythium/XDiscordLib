@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Discord;
@@ -14,7 +16,7 @@ namespace XDiscordBotLib.Commands
         public GeneralModule(CommandService service) { this.service = service; }
 
         [Command("help"), Alias("commands", "cmds", "command"), Summary("List of commands")]
-        public async Task Help([Remainder]string command = "")
+        public async Task Help([Remainder] string command = "")
         {
             var builder = new EmbedBuilder();
 
@@ -101,19 +103,29 @@ namespace XDiscordBotLib.Commands
                 await ReplyAsync("", false, builder.Build());
             }
         }
-        
+
         [Command("about"), Summary("About the bot")]
         public async Task About()
         {
-            var assembly = typeof(Bot).Assembly.GetName();
-            var discord = typeof(DiscordClientExtensions).Assembly.GetName();
-            await ReplyAsync($"Running on {assembly.Name} {assembly.Version}, and {discord.Name} {discord.Version}");
+            var library = typeof(Bot).Assembly.GetName();
+            var discord = typeof(IChannel).Assembly.GetName();
+            var entry = Assembly.GetEntryAssembly()
+                .GetName();
+            await ReplyAsync($"I'm {NameVersion(entry)}, I'm running on {NameVersion(library)} and {NameVersion(discord)}");
         }
 
-        /* [Command("ping")]
-         public async Task Ping()
-         {
-             await ReplyAsync($"Pong {Context.Message.Timestamp.Subtract(now).TotalMilliseconds}ms");
-         }*/
+        private static string NameVersion(AssemblyName name) { return $"{name.Name} {Version(name.Version)}"; }
+
+        private static string Version(Version? version)
+        {
+            if (version == null)
+                return "";
+
+            if (version.Revision != 0)
+            {
+                return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            }
+            return $"{version.Major}.{version.Minor}.{version.Build}";
+        }
     }
 }
