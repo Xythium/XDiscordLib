@@ -6,14 +6,14 @@ using Discord.Commands;
 
 namespace XDiscordBotLib.Commands
 {
-    public class GeneralModule : ModuleBase<CommandContext>
+    public class GeneralModule : ModuleBase
     {
         private readonly CommandService service;
 
         public GeneralModule(CommandService service) { this.service = service; }
 
         [Command("help"), Alias("commands", "cmds", "command"), Summary("oh my god wtf please help me")]
-        public async Task Help(string command = "''")
+        public async Task Help(string command = "")
         {
             var builder = new EmbedBuilder();
 
@@ -23,9 +23,6 @@ namespace XDiscordBotLib.Commands
 
                 foreach (var module in service.Modules)
                 {
-                    if (module.Name == "BotOwnerModule" || module.Name == "VersionModule")
-                        continue;
-
                     var description = new StringBuilder();
                     var commands = module.Commands.OrderBy(c => c.Name)
                         .ToArray();
@@ -85,7 +82,7 @@ namespace XDiscordBotLib.Commands
                         parameters.AppendLine();
                         parameters.Append(parameter.IsOptional ? "[" : "<");
                         parameters.Append($"{parameter.Name} : {parameter.Type.Name}");
-                        parameters.Append(parameter.IsOptional ? $"=`{parameter.DefaultValue}`]" : ">");
+                        parameters.Append(parameter.IsOptional ? $"='{parameter.DefaultValue}']" : ">");
                         parameters.Append($" {parameter.Summary}");
                     }
 
