@@ -12,8 +12,8 @@ namespace XDiscordBotLib.Commands
 
         public GeneralModule(CommandService service) { this.service = service; }
 
-        [Command("help"), Alias("commands", "cmds", "command"), Summary("oh my god wtf please help me")]
-        public async Task Help(string command = "")
+        [Command("help"), Alias("commands", "cmds", "command"), Summary("List of commands")]
+        public async Task Help([Remainder]string command = "")
         {
             var builder = new EmbedBuilder();
 
