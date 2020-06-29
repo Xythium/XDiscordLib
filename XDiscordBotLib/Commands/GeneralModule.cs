@@ -48,6 +48,9 @@ namespace XDiscordBotLib.Commands
                             description.Append($" - _{cmd.Summary}_");
                         description.AppendLine();
                     }
+                    
+                    if (description.Length < 1)
+                        continue;
 
                     var name = module.Name.Replace("Module", "");
                     builder.AddField(x =>
