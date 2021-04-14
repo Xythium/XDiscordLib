@@ -48,7 +48,7 @@ namespace XDiscordBotLib.Commands
                             description.Append($" - _{cmd.Summary}_");
                         description.AppendLine();
                     }
-                    
+
                     if (description.Length < 1)
                         continue;
 
@@ -128,6 +128,7 @@ namespace XDiscordBotLib.Commands
             {
                 return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
             }
+
             return $"{version.Major}.{version.Minor}.{version.Build}";
         }
     }
