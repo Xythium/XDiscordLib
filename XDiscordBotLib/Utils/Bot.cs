@@ -21,15 +21,14 @@ namespace XDiscordBotLib.Utils
 
         public Bot(string token, string commandPrefix) : this(token, commandPrefix, new DiscordSocketConfig()) { }
 
-        public Bot(string token, string commandPrefix, DiscordSocketConfig socketConfig)
+        public Bot(string token, string commandPrefix, DiscordSocketConfig? socketConfig)
         {
             if (string.IsNullOrWhiteSpace(token))
                 throw new ArgumentException("Token is null or whitespace", nameof(token));
 
             this.token = token;
             this.commandPrefix = commandPrefix;
-            if (socketConfig == null)
-                socketConfig = new DiscordSocketConfig();
+            socketConfig ??= new DiscordSocketConfig();
             socketClient = new DiscordSocketClient(socketConfig);
             commands = new CommandService();
         }

@@ -9,21 +9,15 @@ namespace XDiscordBotLib.Database
     {
         private readonly IDocumentStore documentStore;
 
-        public DataStore(string name) : this(name, "http://localhost") { }
-
-        public DataStore(string name, string ip) : this(name, ip, 8888) { }
-
-        public DataStore(string name, string ip, int port)
+        public DataStore(string name, string ip = "http://localhost", int port = 8888)
         {
-            Singleton<DataStore>.SetInstance(this);
             documentStore = new DocumentStore
             {
                 Url = $"{ip}:{port}",
                 DefaultDatabase = name
             }.Initialize();
-            documentStore.Conventions.MaxNumberOfRequestsPerSession = 1000;
             IndexCreation.CreateIndexes(typeof(DataStore).Assembly, documentStore);
-            Logging.Console.Verbose($"Opened connection to {documentStore.Url}");
+            Logging.Console.Verbose("Opened connection to {Url}", documentStore.Url);
         }
 
         public IAsyncDocumentSession OpenAsyncSession() => documentStore.OpenAsyncSession();

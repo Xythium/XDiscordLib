@@ -1,20 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>Library</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <PackageId>XDiscordBotLib</PackageId>
         <Version>1.0.3</Version>
         <Authors>Mark Thomas Bakker</Authors>
         <RepositoryUrl>https://github.com/Xythium/XDiscordLib</RepositoryUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.1.7</PackageVersion>
+        <PackageVersion>1.2.1</PackageVersion>
         <Title>XDiscordBotLib</Title>
-        <LangVersion>8</LangVersion>
+        <LangVersion>preview</LangVersion>
         <PackageProjectUrl>https://github.com/Xythium/XDiscordLib</PackageProjectUrl>
         <PackageIconUrl>https://xythium.github.io/favicon.ico</PackageIconUrl>
-        <AssemblyVersion>1.1.7</AssemblyVersion>
+        <AssemblyVersion>1.2.1</AssemblyVersion>
         <NeutralLanguage>en</NeutralLanguage>
-        <FileVersion>1.1.7</FileVersion>
+        <FileVersion>1.2.1</FileVersion>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
@@ -28,14 +29,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Discord.Net" Version="2.3.1" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.5" />
+      <PackageReference Include="Discord.Net" Version="3.5.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
       <PackageReference Include="RavenDB.Client" Version="3.5.9" />
       <PackageReference Include="Serilog" Version="2.9.0" />
       <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
       <PackageReference Include="Serilog.Sinks.Literate" Version="3.0.0" />
       <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-      <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+      <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
     </ItemGroup>
 
 </Project>
