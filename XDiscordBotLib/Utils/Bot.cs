@@ -93,8 +93,9 @@ public abstract class Bot
 
     }
 
-    protected virtual void setupTimers()
+    protected virtual Task setupTimers()
     {
+        return Task.CompletedTask;
     }
 
     protected virtual Task SocketClient_Log(LogMessage logMessage)
@@ -187,7 +188,7 @@ public abstract class Bot
         setupServices();
         await setupCommands();
         socketClient.Ready += setupInteractions;
-        setupTimers();
+        socketClient.Ready += setupTimers;
 
         await socketClient.LoginAsync(TokenType.Bot, token);
         await socketClient.StartAsync();

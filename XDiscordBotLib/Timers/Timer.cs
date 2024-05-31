@@ -15,9 +15,21 @@ public abstract class Timer
     protected Timer(DiscordSocketClient client, int offset = 0)
     {
         socketClient = client;
-        Logging.Console.Verbose($"New Timer: {GetType().Name}, offset: {offset}");
+        Logging.Console.Verbose("New Timer: {Name}, offset: {Offset}", GetType().Name, offset);
         timer = new System.Threading.Timer(callback, null, offset, (int) period.TotalMilliseconds);
     }
 
-    protected abstract void callback(object state);
+    private void callback(object? state)
+    {
+        try
+        {
+            callback();
+        }
+        catch (Exception ex)
+        {
+            Logging.Error.Error(ex, "Error in timer");
+        }
+    }
+
+    protected abstract void callback();
 }

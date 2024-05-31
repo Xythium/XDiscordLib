@@ -27,8 +27,16 @@ class Program
 
 internal class TestBot : Bot
 {
+    private TestTimer timer;
+
     public TestBot(string token, string commandPrefix, DiscordSocketConfig socketConfig) : base(token, commandPrefix, socketConfig)
     {
 
+    }
+
+    protected override Task setupTimers()
+    {
+        timer = new TestTimer(socketClient);
+        return base.setupTimers();
     }
 }
